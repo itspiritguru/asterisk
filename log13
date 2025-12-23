@@ -1,0 +1,128 @@
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# nano -n /etc/asterisk/pjsip_custom.conf
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# apt install iptables-persistent -y
+iptables -A INPUT -i wg0 -p udp --dport 5060 -j ACCEPT
+iptables -A INPUT -i wg0 -p udp --dport 10000:20000 -j ACCEPT
+netfilter-persistent save
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+iptables-persistent is already the newest version (1.0.20).
+0 upgraded, 0 newly installed, 0 to remove and 46 not upgraded.
+run-parts: executing /usr/share/netfilter-persistent/plugins.d/15-ip4tables save
+run-parts: executing /usr/share/netfilter-persistent/plugins.d/25-ip6tables save
+root@freepbx17:~#
+root@freepbx17:~# wg show
+ping -c 3 10.0.0.2  # с EU
+ping -c 3 10.0.0.1  # с RU
+interface: wg0
+  public key: 2YW/Kt40wk8UKKfy189sdsvyMhrwGfM/ifeFI7hvqRs=
+  private key: (hidden)
+  listening port: 51820
+
+peer: To4qBNlWBrQBzRw35iK0OUl0Zz7NjpO5V2t9nsxZ/2o=
+  endpoint: 185.242.105.12:51820
+  allowed ips: 10.0.0.1/32
+  latest handshake: 5 seconds ago
+  transfer: 13.50 KiB received, 10.71 KiB sent
+  persistent keepalive: every 25 seconds
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=0.074 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.103 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.108 ms
+
+--- 10.0.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2034ms
+rtt min/avg/max/mdev = 0.074/0.095/0.108/0.015 ms
+PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=12.7 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=12.6 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=12.7 ms
+
+--- 10.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 12.596/12.658/12.726/0.053 ms
+root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|mango"
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# nano -n /etc/asterisk/pjsip_custom.conf
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|mango"
+root@freepbx17:~#
+
+
+
+
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# nano -n /etc/asterisk/pjsip_custom.conf
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# apt install iptables-persistent -y
+iptables -A INPUT -i wg0 -p udp --dport 5060 -j ACCEPT
+iptables -A INPUT -i wg0 -p udp --dport 10000:20000 -j ACCEPT
+netfilter-persistent save
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+iptables-persistent is already the newest version (1.0.20).
+0 upgraded, 0 newly installed, 0 to remove and 46 not upgraded.
+run-parts: executing /usr/share/netfilter-persistent/plugins.d/15-ip4tables save
+run-parts: executing /usr/share/netfilter-persistent/plugins.d/25-ip6tables save
+root@freepbx17:~#
+root@freepbx17:~# wg show
+ping -c 3 10.0.0.2  # с EU
+ping -c 3 10.0.0.1  # с RU
+interface: wg0
+  public key: 2YW/Kt40wk8UKKfy189sdsvyMhrwGfM/ifeFI7hvqRs=
+  private key: (hidden)
+  listening port: 51820
+
+peer: To4qBNlWBrQBzRw35iK0OUl0Zz7NjpO5V2t9nsxZ/2o=
+  endpoint: 185.242.105.12:51820
+  allowed ips: 10.0.0.1/32
+  latest handshake: 5 seconds ago
+  transfer: 13.50 KiB received, 10.71 KiB sent
+  persistent keepalive: every 25 seconds
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=0.074 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.103 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.108 ms
+
+--- 10.0.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2034ms
+rtt min/avg/max/mdev = 0.074/0.095/0.108/0.015 ms
+PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=12.7 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=12.6 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=12.7 ms
+
+--- 10.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 12.596/12.658/12.726/0.053 ms
+root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|mango"
+root@freepbx17:~# nano /etc/asterisk/extensions_custom.conf  -n
+root@freepbx17:~# nano -n /etc/asterisk/pjsip_custom.conf
+root@freepbx17:~# fwconsole reload
+Reload Started
+Reload Complete
+root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|mango"
+root@freepbx17:~#
+
+
