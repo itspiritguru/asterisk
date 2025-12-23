@@ -1,0 +1,11 @@
+root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|mango"
+ Endpoint:  eu_asterisk_vpn                                      Not in use    0 of inf
+        Aor:  eu_asterisk_vpn_aor                                0
+      Contact:  eu_asterisk_vpn_aor/sip:10.0.0.1:5060      2e2e57a8a7 NonQual         nan
+   Identify:  eu_asterisk_vpn_identify/eu_asterisk_vpn
+ Endpoint:  mango_telecom                                        Not in use    0 of inf
+    OutAuth:  mango_telecom/user1
+        Aor:  mango_telecom                                      0
+      Contact:  mango_telecom/sip:vpbx400328242.mangosip.r e14d12f094 Avail         9.813
+   Identify:  mango_telecom/mango_telecom
+root@freepbx17:~#
