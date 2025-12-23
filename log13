@@ -126,3 +126,51 @@ root@freepbx17:~# asterisk -rx "pjsip show endpoints" | grep -E "eu_asterisk|man
 root@freepbx17:~#
 
 
+root@freepbx17:~# asterisk -rx "pjsip show identifies"
+
+ Identify:  <Identify/Endpoint...........................................................>
+      Match:  <criteria...........................>
+==========================================================================================
+
+ Identify:  eu_asterisk_vpn_identify/eu_asterisk_vpn
+      Match: 10.0.0.1/32
+
+ Identify:  mango_telecom/mango_telecom
+      Match: 81.88.86.35/32
+
+ Identify:  mango_telecom_identify/mango_telecom
+      Match: 81.88.86.35/32
+      Match: 81.88.88.0/24
+
+ Identify:  retell_trunk2/retell_trunk2
+      Match: 89.168.121.54/32
+
+
+Objects found: 4
+
+root@freepbx-eu:~# asterisk -rx "pjsip show identifies"
+
+ Identify:  <Identify/Endpoint...........................................................>
+      Match:  <criteria...........................>
+==========================================================================================
+
+ Identify:  retell_in_identify/retell_in
+      Match: 130.162.187.104/32
+      Match: 143.223.88.0/21
+      Match: 161.115.160.0/19
+      Match: 18.98.16.0/24
+      Match: 89.168.121.54/32
+
+ Identify:  retell_trunk2/retell_trunk2
+      Match: 130.162.187.104/32
+      Match: 43.223.88.0/21
+      Match: 161.115.160.0/19
+      Match: 18.98.16.0/24
+
+ Identify:  ru_asterisk_vpn_identify/ru_asterisk_vpn
+      Match: 10.0.0.2/32
+
+
+Objects found: 3
+
+root@freepbx-eu:~#
