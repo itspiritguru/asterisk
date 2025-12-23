@@ -1,0 +1,326 @@
+root@freepbx-eu:~# asterisk -rvvvvv
+Asterisk 22.6.0, Copyright (C) 1999 - 2025, Sangoma Technologies Corporation and others.
+Created by Mark Spencer <markster@digium.com>
+Asterisk comes with ABSOLUTELY NO WARRANTY; type 'core show warranty' for details.
+This is free software, with components licensed under the GNU General Public
+License version 2 and other licenses; you are welcome to redistribute it under
+certain conditions. Type 'core show license' for details.
+=========================================================================
+Connected to Asterisk 22.6.0 currently running on freepbx-eu (pid = 1856)
+freepbx-eu*CLI> pjsip set logger on
+PJSIP Logging enabled
+freepbx-eu*CLI> rtp set debug on
+RTP Packet Debugging Enabled
+<--- Received SIP request (1095 bytes) from UDP:18.98.16.123:5060 --->
+INVITE sip:+919164688596@185.242.105.12:5060;transport=udp SIP/2.0
+Record-Route: <sip:18.98.16.123;lr>
+Via: SIP/2.0/UDP 18.98.16.123:5060;branch=z9hG4bK7738.d0c55527edd823a0e9ac7f7cd6a296d8.0
+Via: SIP/2.0/UDP 161.115.179.163:9000;rport=9000;alias;branch=z9hG4bK.OCQOVG9KuRDnDLcG
+CSeq: 1 INVITE
+Call-ID: nQimAybSOvWbeskA93D59qzVgFO
+Content-Length: 294
+To: <sip:+919164688596@185.242.105.12:5060;transport=udp>
+From: <sip:+37127873106@5t4n6j0wnrl.sip.livekit.cloud:9000;transport=udp>;tag=SCL_DrS2FgXj5XYy
+Contact: <sip:161.115.179.163:9000;transport=udp>
+Content-Type: application/sdp
+Allow: INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE
+X-RetellAI-CallId: call_4dd7ed2df8f434c1bccf9c8c02c
+X-RetellAI-Direction: Outbound
+Max-Forwards: 69
+P-Hint: outbound
+
+v=0
+o=- 17819194897758452945 17819194897758452945 IN IP4 161.115.179.163
+s=LiveKit
+c=IN IP4 161.115.179.163
+t=0 0
+m=audio 59614 RTP/AVP 9 0 8 101
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=sendrecv
+
+<--- Transmitting SIP response (496 bytes) to UDP:18.98.16.123:5060 --->
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 18.98.16.123:5060;rport=5060;received=18.98.16.123;branch=z9hG4bK7738.d0c55527edd823a0e9ac7f7cd6a296d8.0
+Via: SIP/2.0/UDP 161.115.179.163:9000;rport=9000;branch=z9hG4bK.OCQOVG9KuRDnDLcG;alias
+Record-Route: <sip:18.98.16.123:5060;lr>
+Call-ID: nQimAybSOvWbeskA93D59qzVgFO
+From: <sip:+37127873106@5t4n6j0wnrl.sip.livekit.cloud>;tag=SCL_DrS2FgXj5XYy
+To: <sip:+919164688596@185.242.105.12>
+CSeq: 1 INVITE
+Server: FPBX-17.0.24(22.6.0)
+Content-Length:  0
+
+
+    -- Executing [+919164688596@from-retell:1] NoOp("PJSIP/retell_in-00000004", "=== IN Retell: exten=+919164688596 clid="" <+37127873106> ===") in new stack
+    -- Executing [+919164688596@from-retell:2] Set("PJSIP/retell_in-00000004", "NUM_RAW=919164688596") in new stack
+    -- Executing [+919164688596@from-retell:3] Set("PJSIP/retell_in-00000004", "NUM10=9164688596") in new stack
+    -- Executing [+919164688596@from-retell:4] Set("PJSIP/retell_in-00000004", "NUM_E164=+79164688596") in new stack
+    -- Executing [+919164688596@from-retell:5] NoOp("PJSIP/retell_in-00000004", "=== To RU via VPN: +79164688596 ===") in new stack
+    -- Executing [+919164688596@from-retell:6] Dial("PJSIP/retell_in-00000004", "PJSIP/+79164688596@ru_asterisk_vpn,60") in new stack
+<--- Transmitting SIP request (940 bytes) to UDP:10.0.0.2:5060 --->
+INVITE sip:+79164688596@10.0.0.2:5060 SIP/2.0
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>
+Contact: <sip:asterisk@185.242.105.12:5060>
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+CSeq: 29427 INVITE
+Allow: OPTIONS, INVITE, ACK, BYE, CANCEL, UPDATE, PRACK, REGISTER, SUBSCRIBE, NOTIFY, PUBLISH, MESSAGE, INFO, REFER
+Supported: 100rel, timer, replaces, norefersub, histinfo
+Session-Expires: 1800
+Min-SE: 90
+Max-Forwards: 70
+User-Agent: FPBX-17.0.24(22.6.0)
+Content-Type: application/sdp
+Content-Length:   251
+
+v=0
+o=- 961207852 961207852 IN IP4 10.0.0.1
+s=Asterisk
+c=IN IP4 10.0.0.1
+t=0 0
+m=audio 12796 RTP/AVP 8 0 101
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=maxptime:140
+a=sendrecv
+
+    -- Called PJSIP/+79164688596@ru_asterisk_vpn
+<--- Received SIP response (578 bytes) from UDP:10.0.0.2:5060 --->
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport=5060;received=10.0.0.1;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>;tag=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+CSeq: 29427 INVITE
+WWW-Authenticate: Digest realm="asterisk",nonce="1766519820/730894d32622b7450ee2b92bb6879ab9",opaque="1a99f95b70004f1b",algorithm=MD5,qop="auth"
+Server: FPBX-17.0.21.7(22.5.2)
+Content-Length:  0
+
+
+<--- Transmitting SIP request (444 bytes) to UDP:10.0.0.2:5060 --->
+ACK sip:+79164688596@10.0.0.2:5060 SIP/2.0
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>;tag=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+CSeq: 29427 ACK
+Max-Forwards: 70
+User-Agent: FPBX-17.0.24(22.6.0)
+Content-Length:  0
+
+
+[2025-12-23 22:57:00] ERROR[1902]: res_pjsip_outbound_authenticator_digest.c:504 digest_create_request_with_auth:  ru_asterisk_vpn:10.0.0.2: There were no auth ids available
+  == Everyone is busy/congested at this time (1:0/0/1)
+    -- Executing [+919164688596@from-retell:7] Hangup("PJSIP/retell_in-00000004", "") in new stack
+  == Spawn extension (from-retell, +919164688596, 7) exited non-zero on 'PJSIP/retell_in-00000004'
+<--- Transmitting SIP response (564 bytes) to UDP:18.98.16.123:5060 --->
+SIP/2.0 403 Forbidden
+Via: SIP/2.0/UDP 18.98.16.123:5060;rport=5060;received=18.98.16.123;branch=z9hG4bK7738.d0c55527edd823a0e9ac7f7cd6a296d8.0
+Via: SIP/2.0/UDP 161.115.179.163:9000;rport=9000;branch=z9hG4bK.OCQOVG9KuRDnDLcG;alias
+Record-Route: <sip:18.98.16.123:5060;lr>
+Call-ID: nQimAybSOvWbeskA93D59qzVgFO
+From: <sip:+37127873106@5t4n6j0wnrl.sip.livekit.cloud>;tag=SCL_DrS2FgXj5XYy
+To: <sip:+919164688596@185.242.105.12>;tag=0348792a-5654-49c3-b564-b9cc77220789
+CSeq: 1 INVITE
+Server: FPBX-17.0.24(22.6.0)
+Reason: Q.850;cause=21
+Content-Length:  0
+
+
+<--- Received SIP request (422 bytes) from UDP:18.98.16.123:5060 --->
+ACK sip:+919164688596@185.242.105.12:5060;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 18.98.16.123:5060;branch=z9hG4bK7738.d0c55527edd823a0e9ac7f7cd6a296d8.0
+CSeq: 1 ACK
+Call-ID: nQimAybSOvWbeskA93D59qzVgFO
+Content-Length: 0
+To: <sip:+919164688596@185.242.105.12>;tag=0348792a-5654-49c3-b564-b9cc77220789
+From: <sip:+37127873106@5t4n6j0wnrl.sip.livekit.cloud:9000;transport=udp>;tag=SCL_DrS2FgXj5XYy
+Max-Forwards: 69
+
+
+<--- Transmitting SIP request (572 bytes) to UDP:89.168.121.54:5060 --->
+OPTIONS sip:5t4n6j0wnrl.sip.livekit.cloud SIP/2.0
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPja51d9f3a-6405-440f-88da-e45d6f32a821
+From: <sip:retell_trunk2@5t4n6j0wnrl.sip.livekit.cloud>;tag=3e58ad4a-9dba-43fa-a3de-fb295be7fef4
+To: <sip:5t4n6j0wnrl.sip.livekit.cloud>
+Contact: <sip:retell_trunk2@185.242.105.12:5060>
+Call-ID: b8a385e5-8d46-453d-8830-d4eef06a519f
+CSeq: 34290 OPTIONS
+Route: <sip:5t4n6j0wnrl.sip.livekit.cloud>
+Route: <sip:5t4n6j0wnrl.sip.livekit.cloud:5060>
+Max-Forwards: 70
+User-Agent: FPBX-17.0.24(22.6.0)
+Content-Length:  0
+
+
+<--- Received SIP response (382 bytes) from UDP:89.168.121.54:5060 --->
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPja51d9f3a-6405-440f-88da-e45d6f32a821
+From: <sip:retell_trunk2@5t4n6j0wnrl.sip.livekit.cloud>;tag=3e58ad4a-9dba-43fa-a3de-fb295be7fef4
+To: <sip:5t4n6j0wnrl.sip.livekit.cloud>;tag=2ec8819a-8711-4360-a699-2c36b38c0f45
+Call-ID: b8a385e5-8d46-453d-8830-d4eef06a519f
+CSeq: 34290 OPTIONS
+Content-Length: 0
+
+
+freepbx-eu*CLI> 
+Disconnected from Asterisk server
+Asterisk cleanly ending (0).
+Executing last minute cleanups
+root@freepbx-eu:~# 
+
+
+
+
+
+root@freepbx17:~# asterisk -rvvvvv
+Asterisk 22.5.2, Copyright (C) 1999 - 2025, Sangoma Technologies Corporation and others.
+Created by Mark Spencer <markster@digium.com>
+Asterisk comes with ABSOLUTELY NO WARRANTY; type 'core show warranty' for details.
+This is free software, with components licensed under the GNU General Public
+License version 2 and other licenses; you are welcome to redistribute it under
+certain conditions. Type 'core show license' for details.
+=========================================================================
+Connected to Asterisk 22.5.2 currently running on freepbx17 (pid = 1919)
+freepbx17*CLI> rtp set debug on
+RTP Packet Debugging Enabled
+freepbx17*CLI> pjsip set logger on
+PJSIP Logging enabled
+<--- Received SIP request (940 bytes) from UDP:10.0.0.1:5060 --->
+INVITE sip:+79164688596@10.0.0.2:5060 SIP/2.0
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>
+Contact: <sip:asterisk@185.242.105.12:5060>
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+CSeq: 29427 INVITE
+Allow: OPTIONS, INVITE, ACK, BYE, CANCEL, UPDATE, PRACK, REGISTER, SUBSCRIBE, NOTIFY, PUBLISH, MESSAGE, INFO, REFER
+Supported: 100rel, timer, replaces, norefersub, histinfo
+Session-Expires: 1800
+Min-SE: 90
+Max-Forwards: 70
+User-Agent: FPBX-17.0.24(22.6.0)
+Content-Type: application/sdp
+Content-Length:   251
+
+v=0
+o=- 961207852 961207852 IN IP4 10.0.0.1
+s=Asterisk
+c=IN IP4 10.0.0.1
+t=0 0
+m=audio 12796 RTP/AVP 8 0 101
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=maxptime:140
+a=sendrecv
+
+[2025-12-23 22:57:00] WARNING[1963]: res_pjsip_endpoint_identifier_ip.c:374 common_identify: Identify 'eu_asterisk_vpn_identify' points to endpoint 'eu_asterisk_vpn' but endpoint could not be found
+<--- Transmitting SIP response (578 bytes) to UDP:10.0.0.1:5060 --->
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport=5060;received=10.0.0.1;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>;tag=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+CSeq: 29427 INVITE
+WWW-Authenticate: Digest realm="asterisk",nonce="1766519820/730894d32622b7450ee2b92bb6879ab9",opaque="1a99f95b70004f1b",algorithm=MD5,qop="auth"
+Server: FPBX-17.0.21.7(22.5.2)
+Content-Length:  0
+
+
+[2025-12-23 22:57:00] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="ChallengeSent",EventTV="2025-12-23T22:57:00.788+0300",Severity="Informational",Service="PJSIP",EventVersion="1",AccountID="<unknown>",SessionID="a5ef635e-7f47-4835-be9c-bd040e74b96f",LocalAddress="IPV4/UDP/94.242.60.78/5060",RemoteAddress="IPV4/UDP/10.0.0.1/5060",Challenge=""
+<--- Received SIP request (444 bytes) from UDP:10.0.0.1:5060 --->
+ACK sip:+79164688596@10.0.0.2:5060 SIP/2.0
+Via: SIP/2.0/UDP 185.242.105.12:5060;rport;branch=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+From: <sip:+37127873106@185.242.105.12>;tag=88c8758c-74a7-423a-a266-214bb8dbf678
+To: <sip:+79164688596@10.0.0.2>;tag=z9hG4bKPjd7b2eb91-1446-484b-b76a-4391d6bf10a1
+Call-ID: a5ef635e-7f47-4835-be9c-bd040e74b96f
+CSeq: 29427 ACK
+Max-Forwards: 70
+User-Agent: FPBX-17.0.24(22.6.0)
+Content-Length:  0
+
+
+[2025-12-23 22:57:00] WARNING[1963]: res_pjsip_endpoint_identifier_ip.c:374 common_identify: Identify 'eu_asterisk_vpn_identify' points to endpoint 'eu_asterisk_vpn' but endpoint could not be found
+[2025-12-23 22:57:02] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="SuccessfulAuth",EventTV="2025-12-23T22:57:02.108+0300",Severity="Informational",Service="AMI",EventVersion="1",AccountID="W3nLfNpIraDY",SessionID="0x7ff0f4002f00",LocalAddress="IPV4/TCP/127.0.0.1/5038",RemoteAddress="IPV4/TCP/127.0.0.1/58482",UsingPassword="0",SessionTV="2025-12-23T22:57:02.108+0300"
+[2025-12-23 22:57:02] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="SuccessfulAuth",EventTV="2025-12-23T22:57:02.114+0300",Severity="Informational",Service="AMI",EventVersion="1",AccountID="W3nLfNpIraDY",SessionID="0x7ff1000352f0",LocalAddress="IPV4/TCP/127.0.0.1/5038",RemoteAddress="IPV4/TCP/127.0.0.1/58498",UsingPassword="0",SessionTV="2025-12-23T22:57:02.114+0300"
+[2025-12-23 22:57:05] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="SuccessfulAuth",EventTV="2025-12-23T22:57:05.723+0300",Severity="Informational",Service="AMI",EventVersion="1",AccountID="W3nLfNpIraDY",SessionID="0x7ff0fc02f780",LocalAddress="IPV4/TCP/127.0.0.1/5038",RemoteAddress="IPV4/TCP/127.0.0.1/54000",UsingPassword="0",SessionTV="2025-12-23T22:57:05.723+0300"
+<--- Received SIP request (1101 bytes) from UDP:81.88.86.35:5060 --->
+INVITE sip:user1@94.242.60.78:5060;line=azrstii SIP/2.0
+Via: SIP/2.0/UDP 81.88.86.35:5060;branch=z9hG4bK708a.b0374a05.0;tmid=4
+Max-Forwards: 68
+Contact: <sip:81.88.86.35;did=TUFgRzw2JH97fHJ5eXt5dnJ2aRR0dXdtfnt1b3pxYW5mfigsJ3J+KXZgc3tuMnN5I3VZTTglPn1+ZmZrfXN7YXl7b3twdWpkc3w->
+To: <sip:user1@vpbx400328242.mangosip.ru;transport=udp>
+From: <sip:79164688596@mangosip.ru>;tag=6900c556
+Call-ID: VA5PLsx0ZZ0ad7cIFjPwhw..
+CSeq: 2 INVITE
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, UPDATE, UPDATE, INFO, REFER, MESSAGE
+Content-Type: application/sdp
+Supported: replaces
+User-Agent: Softswitch3
+x-comm-context: 25549765766
+x-comm-id: 568:235583555
+x-context-group-counter: 3
+Diversion: <sip:78122107151@mangosip.ru>;reason=unconditional;counter=1
+Content-Length: 327
+
+v=0
+o=- 1766519849035 1766519849035 IN IP4 81.88.88.56
+s=-
+t=0 0
+m=audio 48998 RTP/AVP 8 18 96 97 98
+c=IN IP4 81.88.88.56
+a=rtpmap:8 PCMA/8000
+a=rtpmap:18 G729/8000
+a=fmtp:18 annexb=no
+a=rtpmap:96 opus/48000/2
+a=rtpmap:97 telephone-event/8000
+a=rtpmap:98 telephone-event/48000
+a=sendrecv
+a=rtcp:48999
+a=ptime:20
+
+[2025-12-23 22:57:29] WARNING[1963]: res_pjsip_endpoint_identifier_ip.c:374 common_identify: Identify 'mango_telecom_identify' points to endpoint 'mango_telecom' but endpoint could not be found
+<--- Transmitting SIP response (501 bytes) to UDP:81.88.86.35:5060 --->
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/UDP 81.88.86.35:5060;rport=5060;received=81.88.86.35;branch=z9hG4bK708a.b0374a05.0;tmid=4
+Call-ID: VA5PLsx0ZZ0ad7cIFjPwhw..
+From: <sip:79164688596@mangosip.ru>;tag=6900c556
+To: <sip:user1@vpbx400328242.mangosip.ru>;tag=z9hG4bK708a.b0374a05.0
+CSeq: 2 INVITE
+WWW-Authenticate: Digest realm="asterisk",nonce="1766519849/b293f597a9da184c21506b08df1b0125",opaque="794d8b0918b8c5db",algorithm=MD5,qop="auth"
+Server: FPBX-17.0.21.7(22.5.2)
+Content-Length:  0
+
+
+[2025-12-23 22:57:29] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="ChallengeSent",EventTV="2025-12-23T22:57:29.056+0300",Severity="Informational",Service="PJSIP",EventVersion="1",AccountID="<unknown>",SessionID="VA5PLsx0ZZ0ad7cIFjPwhw..",LocalAddress="IPV4/UDP/94.242.60.78/5060",RemoteAddress="IPV4/UDP/81.88.86.35/5060",Challenge=""
+<--- Received SIP request (356 bytes) from UDP:81.88.86.35:5060 --->
+ACK sip:user1@94.242.60.78:5060;line=azrstii SIP/2.0
+Via: SIP/2.0/UDP 81.88.86.35:5060;branch=z9hG4bK708a.b0374a05.0;tmid=4
+From: <sip:79164688596@mangosip.ru>;tag=6900c556
+Call-ID: VA5PLsx0ZZ0ad7cIFjPwhw..
+To: <sip:user1@vpbx400328242.mangosip.ru>;tag=z9hG4bK708a.b0374a05.0
+CSeq: 2 ACK
+Max-Forwards: 70
+User-Agent: Mango SIP
+Content-Length: 0
+
+
+[2025-12-23 22:57:29] WARNING[1963]: res_pjsip_endpoint_identifier_ip.c:374 common_identify: Identify 'mango_telecom_identify' points to endpoint 'mango_telecom' but endpoint could not be found
+[2025-12-23 22:57:37] SECURITY[2107]: res_security_log.c:114 security_event_stasis_cb: SecurityEvent="SuccessfulAuth",EventTV="2025-12-23T22:57:37.021+0300",Severity="Informational",Service="AMI",EventVersion="1",AccountID="W3nLfNpIraDY",SessionID="0x7ff108007db0",LocalAddress="IPV4/TCP/127.0.0.1/5038",RemoteAddress="IPV4/TCP/127.0.0.1/44514",UsingPassword="0",SessionTV="2025-12-23T22:57:37.021+0300"
+freepbx17*CLI> 
+Disconnected from Asterisk server
+Asterisk cleanly ending (0).
+Executing last minute cleanups
+root@freepbx17:~# 
