@@ -130,3 +130,51 @@ Status
 Actions
 mango_telecom	pjsip	78122107151	Enabled
 retell_trunk2	pjsip	+37127873106	Enabled
+
+
+
+root@freepbx17:~# cat /etc/asterisk/pjsip_custom.conf
+; ===== RU -> EU (VPN) =====
+[eu_asterisk_vpn]
+type=endpoint
+context=from-ru-vpn
+disallow=all
+allow=ulaw,alaw
+aors=eu_asterisk_vpn_aor
+direct_media=no
+rtp_symmetric=yes
+force_rport=yes
+rewrite_contact=yes
+
+[eu_asterisk_vpn_aor]
+type=aor
+contact=sip:10.0.0.1:5060
+
+[eu_asterisk_vpn_identify]
+type=identify
+endpoint=eu_asterisk_vpn
+match=10.0.0.1
+
+; ===== Mango Telecom =====
+[mango_telecom_vpn]
+type=endpoint
+transport=0.0.0.0-udp
+context=from-mango-retell
+disallow=all
+allow=ulaw,alaw,g729
+aors=mango_telecom_aor
+direct_media=no
+rtp_symmetric=yes
+force_rport=yes
+rewrite_contact=yes
+
+[mango_telecom_aor]
+type=aor
+contact=sip:81.88.86.35:5060
+
+[mango_telecom_identify]
+type=identify
+endpoint=mango_telecom
+match=81.88.86.35
+match=81.88.88.0/24
+root@freepbx17:~#

@@ -1,0 +1,22 @@
+Reload Complete
+root@freepbx17:~# asterisk -rx "pjsip show identifies"
+
+ Identify:  <Identify/Endpoint...........................................................>
+      Match:  <criteria...........................>
+==========================================================================================
+
+ Identify:  eu_asterisk_vpn_identify/eu_asterisk_vpn
+      Match: 10.0.0.1/32
+
+ Identify:  mango_telecom/mango_telecom
+      Match: 81.88.86.35/32
+
+ Identify:  mango_telecom_identify/mango_telecom
+      Match: 81.88.86.35/32
+      Match: 81.88.88.0/24
+
+ Identify:  retell_trunk2/retell_trunk2
+      Match: 89.168.121.54/32
+
+
+Objects found: 4
